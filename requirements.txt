@@ -1,0 +1,5 @@
+streamlit>=1.66,<2
+numpy>=1.26,<3
+Pillow>=10,<13
+onnxruntime>=1.18,<2
+streamlit-webrtc>=0.79,<1

@@ -1,0 +1,32 @@
+{
+  "input_type": "rgb_image",
+  "illumination": "white",
+  "input_size": [
+    160,
+    160
+  ],
+  "layout": "NCHW",
+  "resize": "stretch",
+  "scale": 0.00392156862745098,
+  "mean": [
+    0.48500001430511475,
+    0.4560000002384186,
+    0.4059999883174896
+  ],
+  "std": [
+    0.2290000021457672,
+    0.2240000069141388,
+    0.22499999403953552
+  ],
+  "class_names": [
+    "healthy",
+    "early_blight",
+    "late_blight"
+  ],
+  "output_type": "logits",
+  "crop": "Tomato",
+  "abstention_threshold": 0.5,
+  "model_sha256": "87f8f0663749a117002d1266320b3b76bbc2f9c7cda5ef48cd354cc645adb8f8",
+  "model_name": "MobileNetV3-Small frozen ImageNet encoder + fitted multinomial logistic head",
+  "temperature_included_in_model": true
+}

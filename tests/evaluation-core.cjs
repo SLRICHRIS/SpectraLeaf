@@ -1,0 +1,10 @@
+const assert=require('node:assert/strict');const E=require('../web/evaluation-core.js');
+const trial=(plant,specimen,label,pred,scored=true)=>({plant,specimen,reference:label,scored,evidence:scored?'independent-reference':'',model_sha256:'m1',results:[{variant:'rgb',prediction:pred},{variant:'gray',prediction:'healthy'}]});
+const a=trial('p1','l1','healthy','healthy'),b=trial('p2','l2','early_blight','early_blight'),c=trial('p2','l3','late_blight','early_blight');
+assert.equal(E.accuracy([], 'rgb'),null);assert.equal(E.macroF1([], 'rgb'),null);
+assert.equal(E.accepted([trial('p0','l0','healthy','healthy',false)],'m1').length,0);
+assert.equal(E.accepted([a,a,b,c], 'm1').length,3);assert.equal(E.accepted([a,b,c],'different-model').length,0);
+assert.equal(E.accepted([{...a,demo:true}], 'm1').length,0);
+assert.equal(E.accuracy([a,b,c],'rgb'),2/3);assert.equal(E.deltaCI([a],'gray'),null);
+const interval=E.deltaCI([a,b,c],'gray');assert.equal(interval.length,2);assert.ok(interval[0]<=interval[1]);
+console.log('PASS: no invented accuracy without labels, duplicate specimen rejection, model-version isolation, paired cluster intervals.');

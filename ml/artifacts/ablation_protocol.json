@@ -1,0 +1,48 @@
+{
+  "defined_at": "2026-10-29T13:30:24.793662+00:00",
+  "variants": [
+    {
+      "id": "rgb",
+      "name": "RGB \u00b7 full baseline",
+      "transform": "rgb",
+      "augment": true
+    },
+    {
+      "id": "noaug",
+      "name": "RGB \u00b7 no training augmentation",
+      "transform": "rgb",
+      "augment": false
+    },
+    {
+      "id": "gray",
+      "name": "Grayscale \u00b7 retrained head",
+      "transform": "gray",
+      "augment": true
+    },
+    {
+      "id": "red",
+      "name": "Red camera channel only",
+      "transform": "red",
+      "augment": true
+    },
+    {
+      "id": "green",
+      "name": "Green camera channel only",
+      "transform": "green",
+      "augment": true
+    },
+    {
+      "id": "blue",
+      "name": "Blue camera channel only",
+      "transform": "blue",
+      "augment": true
+    }
+  ],
+  "seed": 20261029,
+  "manifest_sha256": "2ce13eb0130b7ccd3969317e4e7f07a27c3bc640980655eb529ac25a46b6b8db",
+  "selection": "validation macro F1 only; C in [0.01,0.1,1,10]",
+  "backbone": "same frozen ImageNet MobileNetV3-Small encoder for all conditions",
+  "interpretation": "Camera RGB channel ablations are not physical wavelength ablations.",
+  "test_reuse": "Secondary comparative analysis on the previously audited fixed sets; not a fresh external validation.",
+  "promotion": "No variant is promoted based on test/external results. Original full-RGB model remains the reference."
+}

@@ -1,0 +1,10 @@
+{
+  "sklearn_to_onnx_max_probability_error": 1.1433985783737555e-06,
+  "checked_partitions": [
+    "train",
+    "validation",
+    "test",
+    "external_test"
+  ],
+  "passed": true
+}

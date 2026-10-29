@@ -1,0 +1,24 @@
+const assert=require('node:assert/strict');
+const O=require('../web/optics-core.js');
+const nativePixels=new Uint8ClampedArray(100*4);for(let i=0;i<100;i++)nativePixels.set([100,100,100,255],i*4);nativePixels.set([255,100,100,255],0);
+assert.equal(O.outputSummary(nativePixels).clipped[0],.01);assert.equal(O.outputSummary(nativePixels).means[0],101.55);
+function acquisition(value,n=12){return O.burst(Array.from({length:n},()=>O.frame(new Uint8ClampedArray(Array.from({length:16},()=>[value,value,value,255]).flat()))));}
+const dark=acquisition(10),white=acquisition(210),sample=acquisition(110);
+const result=O.normalise(sample,dark,white,0,{rho:.99,uRho:.01,linearEvidence:true,spectralEvidence:true});
+assert.equal(result.global_ratio,.5);assert.equal(result.flatfield_ratio,.5);assert.equal(result.global_estimate,.495);
+assert.equal(result.standard_uncertainty,0);assert.ok(Math.abs(result.reflectance_standard_uncertainty-.005)<1e-12);
+assert.equal(result.quantity,'operator-qualified band reflectance estimate');
+assert.equal(O.normalise(acquisition(240),dark,white,0,{rho:.99,linearEvidence:true,spectralEvidence:true}).quantity,'relative camera-response ratio');
+assert.equal(O.normalise(sample,dark,acquisition(15)).valid,false);
+assert.equal(O.normalise(acquisition(252),dark,white).valid,false);
+assert.equal(O.normalise(acquisition(110,1),acquisition(10,1),acquisition(210,1)).standard_uncertainty,null);
+const curve=O.linearity([1,2,3,4,5].map(exposure=>({exposure,dark:5,light:5+20*exposure})));
+assert.equal(curve.valid,true);assert.equal(curve.r2,1);assert.equal(curve.slope,20);
+assert.equal(O.linearity([1,1,2,2,3].map(exposure=>({exposure,dark:0,light:20*exposure}))).valid,false);
+const base={qualified:true,nirVerified:true,fwhm_nm:20,plant:'P1',specimen:'L1',geometry:'G1',u:.01};
+const index=O.indices([{...base,wavelength_nm:660,value:.2},{...base,wavelength_nm:850,value:.6}]);
+assert.ok(Math.abs(index.NDVI.value-.5)<1e-12);
+assert.equal(O.indices([{...base,wavelength_nm:660,value:.2},{...base,qualified:false,wavelength_nm:850,value:.6}]).NDVI.available,false);
+assert.equal(O.indices([{...base,wavelength_nm:660,value:.2},{...base,specimen:'L2',wavelength_nm:850,value:.6}]).NDVI.available,false);
+assert.ok(Math.abs(O.photon(660).energy_ev-1.878548)<.00001);
+console.log('PASS: reference ratios, shared-dark uncertainty, clipping/denominator rejection, missing repeatability, linearity, qualified indices and photon energy.');

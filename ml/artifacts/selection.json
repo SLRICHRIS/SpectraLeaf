@@ -1,0 +1,40 @@
+{
+  "selected_C": 0.1,
+  "temperature": 1.3545477028166433,
+  "abstention_threshold": 0.5,
+  "selection_data": "validation only",
+  "candidates": [
+    {
+      "C": 0.01,
+      "validation_macro_f1": 0.9547324729656372,
+      "iterations": [
+        49
+      ],
+      "fit_seconds": 0.2398515340000813
+    },
+    {
+      "C": 0.1,
+      "validation_macro_f1": 0.9548010321879669,
+      "iterations": [
+        58
+      ],
+      "fit_seconds": 0.23034083599941368
+    },
+    {
+      "C": 1.0,
+      "validation_macro_f1": 0.9495640850967032,
+      "iterations": [
+        28
+      ],
+      "fit_seconds": 0.1343315940002867
+    },
+    {
+      "C": 10.0,
+      "validation_macro_f1": 0.9462087463357394,
+      "iterations": [
+        20
+      ],
+      "fit_seconds": 0.08734558800006198
+    }
+  ]
+}

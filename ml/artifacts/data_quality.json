@@ -1,0 +1,59 @@
+{
+  "seed": 20261029,
+  "ingested": 4762,
+  "accepted": 3177,
+  "quarantined": 1584,
+  "exact_duplicates_removed": 1,
+  "perceptual_near_pairs": 9,
+  "manifest_sha256": "2ce13eb0130b7ccd3969317e4e7f07a27c3bc640980655eb529ac25a46b6b8db",
+  "class_order": [
+    "healthy",
+    "early_blight",
+    "late_blight"
+  ],
+  "splits": {
+    "train": {
+      "early_blight": 599,
+      "late_blight": 552,
+      "healthy": 599
+    },
+    "validation": {
+      "early_blight": 200,
+      "late_blight": 184,
+      "healthy": 200
+    },
+    "test": {
+      "early_blight": 200,
+      "late_blight": 184,
+      "healthy": 200
+    },
+    "external_test": {
+      "early_blight": 87,
+      "late_blight": 109,
+      "healthy": 63
+    }
+  },
+  "groups": {
+    "train": 438,
+    "validation": 146,
+    "test": 146,
+    "external_test": 252
+  },
+  "quarantine_reasons": {
+    "missing_or_ambiguous_leaf_identity": 1582,
+    "duplicate_group_has_conflicting_labels": 2,
+    "exact_decoded_image_duplicate": 1
+  },
+  "leakage_checks": {
+    "group_overlap": 0,
+    "byte_hash_overlap": 0,
+    "pixel_hash_overlap": 0,
+    "known_leaf_overlap": 0
+  },
+  "limitations": [
+    "Leaf-level grouping is available; plant identifiers are unavailable, so plant-level independence cannot be established.",
+    "Conservative perceptual hashing cannot guarantee removal of all near duplicates.",
+    "PlantDoc labels are inherited from the source and have not been independently confirmed by a plant pathologist.",
+    "PlantVillage is controlled RGB imagery; no wavelength or real webcam generalisation is established by its internal test split."
+  ]
+}

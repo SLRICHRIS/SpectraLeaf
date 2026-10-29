@@ -1,0 +1,15 @@
+{
+  "plantvillage_revision": "7f7ecc7e1eaca78107e3affe7cb5abd9427e139a",
+  "plantdoc_revision": "5467f6012d78d1c446145d5f582da6096f852ae8",
+  "plantvillage_dataset_license": "CC-BY-SA-3.0",
+  "plantdoc_license": "CC-BY-4.0",
+  "leaf_map_sha256": "3b4b253683c6911744959a3870a92509b1faa1ee34e9f8585e21d0fe6337a25b",
+  "selected_classes": {
+    "Tomato___healthy": "healthy",
+    "Tomato___Early_blight": "early_blight",
+    "Tomato___Late_blight": "late_blight"
+  },
+  "expected_images": 4762,
+  "verified_images": 4762,
+  "download_failures": 0
+}

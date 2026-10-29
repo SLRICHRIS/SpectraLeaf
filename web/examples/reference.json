@@ -1,0 +1,10 @@
+{
+  "label": "early_blight",
+  "source_url": "https://raw.githubusercontent.com/spMohanty/PlantVillage-Dataset/7f7ecc7e1eaca78107e3affe7cb5abd9427e139a/raw/color/Tomato___Early_blight/0012b9d2-2130-4a06-a834-b1f3af34f57e___RS_Erly.B%208389.JPG",
+  "sha256": "29b79036b67724f6a76895d17ef1b863ad7a7134e03141b1feb601a591336123",
+  "source_dataset": "PlantVillage",
+  "split": "test",
+  "licence": "CC BY-SA 3.0",
+  "credit": "Mohanty, Hughes and Salath\u00e9 (2016), doi:10.3389/fpls.2016.01419",
+  "scope": "Reference demonstration already included in the fixed held-out benchmark; excluded from prospective trial counts."
+}

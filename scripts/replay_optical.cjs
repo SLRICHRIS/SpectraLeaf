@@ -1,0 +1,7 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'..'),core=fs.existsSync(path.join(root,'dist/optics-core.js'))?path.join(root,'dist/optics-core.js'):path.join(root,'web/optics-core.js');
+const O=require(core);if(!process.argv[2])throw new Error('Usage: node scripts/replay_optical.cjs exported-optical-session.json');
+const data=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));assert.equal(data.format,'spectraleaf.lab.v1');
+const references={...data.reference_history};for(const pair of Object.values(data.references))for(const record of Object.values(pair))references[record.id]=record;
+for(const row of data.samples){const dark=references[row.references.dark],white=references[row.references.white];const result=O.normalise(row.acquisition,dark,white,row.channel,row.calibration_options||{});if(dark&&white){assert.equal(row.acquisition.profile.key,dark.profile.key);assert.equal(dark.profile.key,white.profile.key);}else assert.equal(row.study?.usable,false,'A usable acquisition is missing its historical references.');if(Number.isFinite(result.global_ratio))assert.ok(Math.abs(result.global_ratio-row.response.global_ratio)<1e-10,'Replayed ratio differs.');else{assert.equal(row.study?.usable,false,'An uncomputable response must be excluded.');assert.deepEqual(result,row.response,'Replayed failure differs.');}}
+console.log(`PASS: replayed ${data.samples.length} optical measurements using their exact historical references.`);

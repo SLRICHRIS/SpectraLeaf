@@ -1,0 +1,459 @@
+{
+  "run_id": "87f8f0663749a117",
+  "model_sha256": "87f8f0663749a117002d1266320b3b76bbc2f9c7cda5ef48cd354cc645adb8f8",
+  "manifest_sha256": "2ce13eb0130b7ccd3969317e4e7f07a27c3bc640980655eb529ac25a46b6b8db",
+  "training_script_sha256": "cb0b8d51f34cbc949d736468160af56fa39a97b41247a838a2915fc62d945192",
+  "class_order": [
+    "healthy",
+    "early_blight",
+    "late_blight"
+  ],
+  "method": "MobileNetV3-Small frozen ImageNet encoder + fitted multinomial logistic head",
+  "seed": 20261029,
+  "backbone_weights_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+  "training_views_per_image": 3,
+  "training_views": [
+    "original",
+    "horizontal mirror",
+    "10 degree rotation"
+  ],
+  "augmentation_applied_to": "train only",
+  "preprocessing": {
+    "input_type": "rgb_image",
+    "illumination": "white",
+    "input_size": [
+      160,
+      160
+    ],
+    "layout": "NCHW",
+    "resize": "stretch",
+    "scale": 0.00392156862745098,
+    "mean": [
+      0.48500001430511475,
+      0.4560000002384186,
+      0.4059999883174896
+    ],
+    "std": [
+      0.2290000021457672,
+      0.2240000069141388,
+      0.22499999403953552
+    ],
+    "class_names": [
+      "healthy",
+      "early_blight",
+      "late_blight"
+    ],
+    "output_type": "logits",
+    "crop": "Tomato",
+    "abstention_threshold": 0.5,
+    "model_sha256": "87f8f0663749a117002d1266320b3b76bbc2f9c7cda5ef48cd354cc645adb8f8",
+    "model_name": "MobileNetV3-Small frozen ImageNet encoder + fitted multinomial logistic head",
+    "temperature_included_in_model": true
+  },
+  "selection": {
+    "selected_C": 0.1,
+    "temperature": 1.3545477028166433,
+    "abstention_threshold": 0.5,
+    "selection_data": "validation only",
+    "candidates": [
+      {
+        "C": 0.01,
+        "validation_macro_f1": 0.9547324729656372,
+        "iterations": [
+          49
+        ],
+        "fit_seconds": 0.2398515340000813
+      },
+      {
+        "C": 0.1,
+        "validation_macro_f1": 0.9548010321879669,
+        "iterations": [
+          58
+        ],
+        "fit_seconds": 0.23034083599941368
+      },
+      {
+        "C": 1.0,
+        "validation_macro_f1": 0.9495640850967032,
+        "iterations": [
+          28
+        ],
+        "fit_seconds": 0.1343315940002867
+      },
+      {
+        "C": 10.0,
+        "validation_macro_f1": 0.9462087463357394,
+        "iterations": [
+          20
+        ],
+        "fit_seconds": 0.08734558800006198
+      }
+    ]
+  },
+  "results": {
+    "train": {
+      "n": 1750,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "balanced_accuracy": 1.0,
+      "log_loss": 0.019236473778895535,
+      "confusion_matrix": [
+        [
+          599,
+          0,
+          0
+        ],
+        [
+          0,
+          599,
+          0
+        ],
+        [
+          0,
+          0,
+          552
+        ]
+      ],
+      "per_class": {
+        "healthy": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 599.0
+        },
+        "early_blight": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 599.0
+        },
+        "late_blight": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 552.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1750.0
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1750.0
+        }
+      },
+      "selection_threshold": 0.5,
+      "accepted_coverage": 1.0,
+      "accepted_accuracy": 1.0,
+      "intervals": {
+        "method": "400 leaf/duplicate-group bootstrap resamples; percentile intervals",
+        "accuracy_95ci": [
+          1.0,
+          1.0
+        ],
+        "macro_f1_95ci": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "validation": {
+      "n": 584,
+      "accuracy": 0.9554794520547946,
+      "macro_f1": 0.9548010321879669,
+      "balanced_accuracy": 0.9549275362318842,
+      "log_loss": 0.1196655949874127,
+      "confusion_matrix": [
+        [
+          200,
+          0,
+          0
+        ],
+        [
+          0,
+          186,
+          14
+        ],
+        [
+          0,
+          12,
+          172
+        ]
+      ],
+      "per_class": {
+        "healthy": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 200.0
+        },
+        "early_blight": {
+          "precision": 0.9393939393939394,
+          "recall": 0.93,
+          "f1-score": 0.9346733668341709,
+          "support": 200.0
+        },
+        "late_blight": {
+          "precision": 0.9247311827956989,
+          "recall": 0.9347826086956522,
+          "f1-score": 0.9297297297297298,
+          "support": 184.0
+        },
+        "accuracy": 0.9554794520547946,
+        "macro avg": {
+          "precision": 0.9547083740632129,
+          "recall": 0.9549275362318842,
+          "f1-score": 0.9548010321879669,
+          "support": 584.0
+        },
+        "weighted avg": {
+          "precision": 0.9555296669746515,
+          "recall": 0.9554794520547946,
+          "f1-score": 0.9554879171868227,
+          "support": 584.0
+        }
+      },
+      "selection_threshold": 0.5,
+      "accepted_coverage": 0.9965753424657534,
+      "accepted_accuracy": 0.9587628865979382,
+      "intervals": {
+        "method": "400 leaf/duplicate-group bootstrap resamples; percentile intervals",
+        "accuracy_95ci": [
+          0.9315068493150684,
+          0.976027397260274
+        ],
+        "macro_f1_95ci": [
+          0.929448420665678,
+          0.9738662246660665
+        ]
+      }
+    },
+    "test": {
+      "n": 584,
+      "accuracy": 0.952054794520548,
+      "macro_f1": 0.9512980549728978,
+      "balanced_accuracy": 0.9515942028985508,
+      "log_loss": 0.17047230623313908,
+      "confusion_matrix": [
+        [
+          200,
+          0,
+          0
+        ],
+        [
+          1,
+          184,
+          15
+        ],
+        [
+          1,
+          11,
+          172
+        ]
+      ],
+      "per_class": {
+        "healthy": {
+          "precision": 0.9900990099009901,
+          "recall": 1.0,
+          "f1-score": 0.9950248756218906,
+          "support": 200.0
+        },
+        "early_blight": {
+          "precision": 0.9435897435897436,
+          "recall": 0.92,
+          "f1-score": 0.9316455696202531,
+          "support": 200.0
+        },
+        "late_blight": {
+          "precision": 0.9197860962566845,
+          "recall": 0.9347826086956522,
+          "f1-score": 0.9272237196765498,
+          "support": 184.0
+        },
+        "accuracy": 0.952054794520548,
+        "macro avg": {
+          "precision": 0.9511582832491393,
+          "recall": 0.9515942028985508,
+          "f1-score": 0.9512980549728978,
+          "support": 584.0
+        },
+        "weighted avg": {
+          "precision": 0.9520177952215355,
+          "recall": 0.952054794520548,
+          "f1-score": 0.9519576258029347,
+          "support": 584.0
+        }
+      },
+      "selection_threshold": 0.5,
+      "accepted_coverage": 0.9931506849315068,
+      "accepted_accuracy": 0.9551724137931035,
+      "intervals": {
+        "method": "400 leaf/duplicate-group bootstrap resamples; percentile intervals",
+        "accuracy_95ci": [
+          0.928082191780822,
+          0.9708904109589042
+        ],
+        "macro_f1_95ci": [
+          0.9280038113459407,
+          0.9709677030044176
+        ]
+      }
+    },
+    "external_test": {
+      "n": 259,
+      "accuracy": 0.4826254826254826,
+      "macro_f1": 0.36593108788230744,
+      "balanced_accuracy": 0.44490140250975435,
+      "log_loss": 3.765247410299888,
+      "confusion_matrix": [
+        [
+          0,
+          57,
+          6
+        ],
+        [
+          0,
+          81,
+          6
+        ],
+        [
+          3,
+          62,
+          44
+        ]
+      ],
+      "per_class": {
+        "healthy": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 63.0
+        },
+        "early_blight": {
+          "precision": 0.405,
+          "recall": 0.9310344827586207,
+          "f1-score": 0.5644599303135889,
+          "support": 87.0
+        },
+        "late_blight": {
+          "precision": 0.7857142857142857,
+          "recall": 0.4036697247706422,
+          "f1-score": 0.5333333333333333,
+          "support": 109.0
+        },
+        "accuracy": 0.4826254826254826,
+        "macro avg": {
+          "precision": 0.3969047619047619,
+          "recall": 0.44490140250975435,
+          "f1-score": 0.36593108788230744,
+          "support": 259.0
+        },
+        "weighted avg": {
+          "precision": 0.46670987313844453,
+          "recall": 0.4826254826254826,
+          "f1-score": 0.41405925587110254,
+          "support": 259.0
+        }
+      },
+      "selection_threshold": 0.5,
+      "accepted_coverage": 1.0,
+      "accepted_accuracy": 0.4826254826254826,
+      "intervals": {
+        "method": "400 leaf/duplicate-group bootstrap resamples; percentile intervals",
+        "accuracy_95ci": [
+          0.4179116881127451,
+          0.5423515325670497
+        ],
+        "macro_f1_95ci": [
+          0.32024393090569564,
+          0.40718179841467517
+        ]
+      }
+    }
+  },
+  "onnx_parity_max_absolute_error": 6.198883056640625e-06,
+  "elapsed_seconds": 26.307720722999875,
+  "data_quality": {
+    "seed": 20261029,
+    "ingested": 4762,
+    "accepted": 3177,
+    "quarantined": 1584,
+    "exact_duplicates_removed": 1,
+    "perceptual_near_pairs": 9,
+    "manifest_sha256": "2ce13eb0130b7ccd3969317e4e7f07a27c3bc640980655eb529ac25a46b6b8db",
+    "class_order": [
+      "healthy",
+      "early_blight",
+      "late_blight"
+    ],
+    "splits": {
+      "train": {
+        "early_blight": 599,
+        "late_blight": 552,
+        "healthy": 599
+      },
+      "validation": {
+        "early_blight": 200,
+        "late_blight": 184,
+        "healthy": 200
+      },
+      "test": {
+        "early_blight": 200,
+        "late_blight": 184,
+        "healthy": 200
+      },
+      "external_test": {
+        "early_blight": 87,
+        "late_blight": 109,
+        "healthy": 63
+      }
+    },
+    "groups": {
+      "train": 438,
+      "validation": 146,
+      "test": 146,
+      "external_test": 252
+    },
+    "quarantine_reasons": {
+      "missing_or_ambiguous_leaf_identity": 1582,
+      "duplicate_group_has_conflicting_labels": 2,
+      "exact_decoded_image_duplicate": 1
+    },
+    "leakage_checks": {
+      "group_overlap": 0,
+      "byte_hash_overlap": 0,
+      "pixel_hash_overlap": 0,
+      "known_leaf_overlap": 0
+    },
+    "limitations": [
+      "Leaf-level grouping is available; plant identifiers are unavailable, so plant-level independence cannot be established.",
+      "Conservative perceptual hashing cannot guarantee removal of all near duplicates.",
+      "PlantDoc labels are inherited from the source and have not been independently confirmed by a plant pathologist.",
+      "PlantVillage is controlled RGB imagery; no wavelength or real webcam generalisation is established by its internal test split."
+    ]
+  },
+  "versions": {
+    "torch": "2.6.0+cpu",
+    "torchvision": "0.21.0+cpu",
+    "scikit-learn": "1.8.0",
+    "numpy": "2.3.5",
+    "Pillow": "12.3.0",
+    "onnx": "1.23.2",
+    "onnxruntime": "1.31.1"
+  },
+  "deployment_status": "research_baseline_not_validated_for_user_webcam_or_multispectral_inputs",
+  "limitations": [
+    "Leaf-level grouping is available; plant identifiers are unavailable, so plant-level independence cannot be established.",
+    "Conservative perceptual hashing cannot guarantee removal of all near duplicates.",
+    "PlantDoc labels are inherited from the source and have not been independently confirmed by a plant pathologist.",
+    "PlantVillage is controlled RGB imagery; no wavelength or real webcam generalisation is established by its internal test split.",
+    "Closed-set classification among three tomato conditions; unrelated images and unrepresented diseases may receive confident incorrect predictions.",
+    "Validation data was used for hyperparameter selection, temperature and threshold; reported test and external results were not used for selection.",
+    "The model is trained for white-light RGB images only. No disease inference is permitted for wavelength-labelled captures."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "artifact_integrity": "passed",
+  "field_readiness": "failed_external_target",
+  "project_external_targets": {
+    "accuracy": 0.85,
+    "macro_f1": 0.8
+  },
+  "actual_external_accuracy": 0.4826254826254826,
+  "actual_external_macro_f1": 0.36593108788230744,
+  "reliable_diagnosis_enabled": false,
+  "experimental_predictions_require_opt_in": true,
+  "webcam_and_physical_illumination_validation": "not_performed",
+  "multispectral_model": "not_trained"
+}
