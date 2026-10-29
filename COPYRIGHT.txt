@@ -1,0 +1,6 @@
+© 2026 S L Richris. All rights reserved.
+
+This notice applies to original SpectraLeaf project materials.
+Third-party software, datasets, images, pretrained components and other
+third-party materials remain subject to their respective licences and
+attribution requirements. Their existing notices are retained.
