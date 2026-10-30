@@ -6,7 +6,11 @@ Show a plant through a continuous live webcam feed, capture individual frames wi
 
 **Measured limitation:** held-out PlantVillage accuracy was 95.2% on 584 images, but separate-source PlantDoc accuracy was 48.3% on 259 images, with 0% healthy-leaf recall on that source. This model is not ready for reliable field or webcam diagnosis. Experimental inference requires opt-in. It is trained for white-light RGB, not your physical wavelength experiment.
 
-## Course faculty
+## Course
+
+**Optoelectronic Materials & Devices (23ECE353)**
+
+### Course faculty
 
 **Dr. Suma H.**  
 Assistant Professor  
