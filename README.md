@@ -1,5 +1,7 @@
 # SpectraLeaf — Streamlit leaf imaging lab
 
+**Live app:** [Open SpectraLeaf on Streamlit](https://spectraleaf-nwsenequdnxogsxtzebdrg.streamlit.app/)
+
 Show a plant through a continuous live webcam feed, capture individual frames without stopping it, or upload an image. Capture the same leaf under physical illumination bands that you supply. Record specimen IDs, crop, reference labels, wavelengths and notes; compare images and export a portable session. A trained three-class tomato RGB research model is bundled; raw datasets are not bundled.
 
 **Measured limitation:** held-out PlantVillage accuracy was 95.2% on 584 images, but separate-source PlantDoc accuracy was 48.3% on 259 images, with 0% healthy-leaf recall on that source. This model is not ready for reliable field or webcam diagnosis. Experimental inference requires opt-in. It is trained for white-light RGB, not your physical wavelength experiment.
